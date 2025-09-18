@@ -1,0 +1,31 @@
+{
+  "name": "DevDay Helper",
+  "description": "Collection of prompts for the DevDay Helper Copilot demo.",
+  "prompts": [
+    {
+      "title": "Convert agenda selection to JSON",
+      "body": "Convert the selected agenda text into a JSON array where each item has keys: title, minutes, goal. Keep minutes as a number.",
+      "mode": "edit"
+    },
+    {
+      "title": "Enrich JSON with presenters",
+      "body": "Please convert the agenda into JSON and add a `presenter` field with an empty string. If a session doesn't list minutes, set minutes to 5 by default.",
+      "mode": "agent"
+    },
+    {
+      "title": "Add totalMinutes top-level",
+      "body": "Convert the agenda into a JSON object with keys `totalMinutes` and `sessions`. `sessions` is an array of session objects (title, minutes, goal). Compute totalMinutes from the sessions.",
+      "mode": "agent"
+    },
+    {
+      "title": "Explain code for beginners",
+      "body": "Explain the `formatAgenda` (or `renderAgenda`) function line-by-line for a new developer.",
+      "mode": "explain"
+    },
+    {
+      "title": "Refactor to handle missing fields",
+      "body": "Refactor the `renderAgenda` function to handle missing goals by inserting 'No description provided' and to ensure total minutes are computed.",
+      "mode": "coder"
+    }
+  ]
+}
