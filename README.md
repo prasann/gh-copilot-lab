@@ -1,68 +1,120 @@
-# DevDay Helper — Demo scaffold
+# 🚀 GitHub Copilot in VS Code
 
-A tiny demo to show GitHub Copilot capabilities in VS Code:
+## 🎯 Agenda Overview
 
-- Start from a plain-text agenda (`AGENDA.txt`).
-- Use Copilot (Edit mode or Agent mode) to convert it into structured JSON (`agenda.json`).
-- Render the JSON in a minimal webpage (`index.html`) using `src/agenda.js`.
+We'll explore 4 core concepts that make GitHub Copilot powerful:
 
-How to run
-1. Open this folder in VS Code.
-2. Open `AGENDA.txt` and show the plain-text agenda.
-3. Use Copilot (edit or agent) to convert into JSON (examples below).
-4. Start a simple server and open the page:
+1. **Prompts** - Explicit instructions for code generation
+2. **Instructions** - Implicit behavioral configuration  
+3. **Chat Modes** - Different interaction patterns
+4. **Collections** - Organized knowledge bases
 
-```bash
-# from the project root
-python3 -m http.server 8000
-# then open http://localhost:8000/index.html in your browser
-```
+---
 
-What's included
-- `AGENDA.txt` — the human-readable agenda you'll convert.
-- `agenda.json` — an example JSON representation (result of the conversion).
-- `index.html` — a tiny page that fetches `agenda.json` and renders it.
-- `src/agenda.js` — small JS helper that formats the agenda into HTML.
+## 1. 📝 Prompts - Explicit Code Generation
 
-Demo flow (10–12 minutes suggested)
-1. Show `AGENDA.txt` (plain text).
-2. Show Edit mode: highlight text and ask Copilot to convert selection to JSON and create `agenda.json`.
-3. Show Agent mode: ask Copilot agent to produce improved JSON (e.g., add presenters or durations).
-4. Open `index.html` and point out how `src/agenda.js` renders the data.
-5. Edit a session title in `AGENDA.txt` and ask Copilot to update `agenda.json` (demonstrates conversational follow-up / context).
+### Demo: Agenda Generation
 
-Copilot prompts — Edit mode (selection -> convert)
+**Setup**: Select `agenda.txt` → `Cmd+P` → "Run prompt"
 
-1) Convert selection to JSON:
+**What happens**:
 
-```
-Convert the selected agenda text into a JSON array where each item has keys: title, minutes, goal. Keep minutes as a number.
-```
+- Generates `agenda.json` in chat window
+- Ask Copilot to create the actual file
+- **🎩 Magic moment**: Notice `created_at` field appears automatically
 
-2) Shorten titles to 3 words max:
+**Key Points**:
 
-```
-Edit the selection to shorten each title to at most three words.
-```
+- Prompts are explicit, user-initiated requests
+- Direct control over what gets generated
+- Perfect for specific, targeted code generation
 
-Copilot prompts — Agent mode (conversational)
+---
 
-1) Improve JSON with presenters and easing of missing fields:
+## 2. ⚙️ Instructions - Implicit Behavioral Configuration
 
-```
-Please convert the agenda into JSON and add a `presenter` field with an empty string. If a session doesn't list minutes, set minutes to 5 by default.
-```
+### The Magic Behind `created_at`
 
-2) Add total minutes calculation and insert at top of JSON as an object `{"totalMinutes": <number>, "sessions": [...]}`:
+**Reveal**: The timestamp appears due to **Instructions**, not the prompt!
 
-```
-Convert the agenda into a JSON object with keys `totalMinutes` and `sessions`. `sessions` is an array of session objects (title, minutes, goal). Compute totalMinutes from the sessions.
-```
+**Key Distinction**:
 
-Presenter script (short)
+- **Prompts**: Explicit user requests ("Generate this code")
+- **Instructions**: Implicit behavioral rules ("Always add timestamps")
 
-- Intro (15–20s): "I'll show how Copilot helps a new dev create a tiny artifact from idea to page in minutes. We'll build a tiny 'DevDay Helper' and save the prompts into a reusable collection."
-- Stage 1: Show `AGENDA.txt` and run Edit-mode prompt to convert selection to JSON.
-- Stage 2: Use Agent mode to enrich the JSON (add presenters, totalMinutes).
-- Stage 3: Open `index.html` and show rendered schedule. Make a small text change in `AGENDA.txt` and ask Copilot to update `agenda.json`.
-- Wrap: Save prompts into a collection and explain reuse.
+### Demo: Agent Mode in Action
+
+**Setup**: Copy-paste `generate_app_prompt.md` in Agent mode
+
+**Showcase**:
+
+1. Agent automatically creates TODO application
+2. Show TODO config and how it operates
+3. Explore agent settings and context management
+4. **🦄 Easter Egg**: TypeScript code includes unicorn comments (from instructions!)
+
+**Why Agent Mode Rocks**:
+
+- Autonomous code generation
+- Context-aware decisions
+- Configurable behavior through instructions
+
+---
+
+## 3. 🔄 Exploring Chat Modes
+
+### Edit Mode - Surgical Precision
+**Demo**: Remove docstrings from TypeScript file
+
+**Key Points**:
+
+- Works only within limited scope
+- Extremely powerful for focused edits
+- Perfect when you know exactly what needs changing
+- Maintains code structure and context
+
+### Ask Mode - Your Brainstorming Partner
+**Use Cases**:
+
+- Architecture discussions
+- Code reviews and suggestions
+- Symbol exploration and understanding
+- Quick questions without code changes
+
+**Demo Tip**: Show how you can reference any symbols/types in questions
+
+---
+
+## 4. 🛠️ Custom Chat Modes
+
+### Reviewer Mode
+
+**Demo**: Show custom reviewer configuration
+
+- Tailored feedback patterns
+- Specific review criteria
+- Consistent review quality
+
+---
+
+## 5. 💪 Power User Features
+
+### Slash Commands
+Quick reference: [GitHub Copilot Cheat Sheet](https://docs.github.com/en/copilot/reference/cheat-sheet)
+
+**Essential Commands**:
+- `/explain` - Code explanation
+- `/fix` - Bug fixes
+- `/tests` - Test generation
+- `/doc` - Documentation
+
+### Vision Capabilities
+Some models support image analysis for UI mockups and diagrams
+[Model Comparison Guide](https://docs.github.com/en/copilot/reference/ai-models/model-comparison)
+
+### Pro Configuration
+**Settings Highlight**: `GitHub › Copilot › Chat › Agent: Auto Fix`
+- Automatic error detection and fixes
+- Continuous improvement suggestions
+
+---
