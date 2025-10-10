@@ -2,7 +2,7 @@
 
 ## 🎯 Agenda Overview
 
-We'll explore 4 core concepts that make GitHub Copilot powerful:
+4 core concepts that make GitHub Copilot powerful:
 
 1. **Prompts** - Explicit instructions for code generation
 2. **Instructions** - Implicit behavioral configuration  
@@ -64,6 +64,7 @@ We'll explore 4 core concepts that make GitHub Copilot powerful:
 ## 3. 🔄 Exploring Chat Modes
 
 ### Edit Mode - Surgical Precision
+
 **Demo**: Remove docstrings from TypeScript file
 
 **Key Points**:
@@ -74,6 +75,7 @@ We'll explore 4 core concepts that make GitHub Copilot powerful:
 - Maintains code structure and context
 
 ### Ask Mode - Your Brainstorming Partner
+
 **Use Cases**:
 
 - Architecture discussions
@@ -100,21 +102,21 @@ We'll explore 4 core concepts that make GitHub Copilot powerful:
 ## 5. 💪 Power User Features
 
 ### Slash Commands
+
 Quick reference: [GitHub Copilot Cheat Sheet](https://docs.github.com/en/copilot/reference/cheat-sheet)
 
 **Essential Commands**:
+
 - `/explain` - Code explanation
 - `/fix` - Bug fixes
 - `/tests` - Test generation
 - `/doc` - Documentation
 
 ### Vision Capabilities
+
 Some models support image analysis for UI mockups and diagrams
 [Model Comparison Guide](https://docs.github.com/en/copilot/reference/ai-models/model-comparison)
 
-### Pro Configuration
-**Settings Highlight**: `GitHub › Copilot › Chat › Agent: Auto Fix`
-- Automatic error detection and fixes
-- Continuous improvement suggestions
+### Cool Configs
 
----
+- Open up settings and do a quick show and tell of things.
