@@ -1,4 +1,4 @@
-# GitHub Copilot Customization Demo
+# GitHub Copilot Lab
 
 Learn how to customize GitHub Copilot with Instructions, Prompts, and Custom Agents.
 
