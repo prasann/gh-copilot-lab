@@ -94,15 +94,49 @@ Use Custom Agents for:
 
 ---
 
+## � Bonus: Agent Skills
+
+Agents can also use **Agent Skills** - complete workflows bundled with resources.
+
+### What Are Skills?
+
+Skills are folders containing:
+- `SKILL.md` file with instructions
+- Scripts, templates, or other resources
+- Located in `.github/skills/`
+
+### Key Difference
+
+**Skills are auto-detected** - Copilot decides when to use them based on your prompt (you don't manually select them).
+
+### Try It
+
+Open [`.github/skills/feature-testing/SKILL.md`](../.github/skills/feature-testing/SKILL.md)
+
+Notice:
+- It includes instructions for testing workflows
+- The `templates/` folder has reusable test templates
+- Copilot will use this automatically when you ask about testing
+
+### When to Create Skills
+
+Create skills for:
+- Complex workflows needing multiple resources
+- Workflows you want portable across projects
+- Specialized tasks that need context (scripts, examples, templates)
+
+---
+
 ## 🎓 Complete!
 
-You've learned the three pillars of GitHub Copilot customization:
+You've learned GitHub Copilot customization:
 
 1. **Instructions** → Automatic standards
 2. **Prompts** → On-demand tasks
 3. **Agents** → Workflow orchestration
+4. **Skills** → Auto-detected workflows (bonus!)
 
-**Reference:** See [QUICK_REFERENCE.md](../QUICK_REFERENCE.md) for a comparison guide.
+**Reference:** See [QUICK_REFERENCE.md](../QUICK_REFERENCE.md) for a complete comparison.
 
 ---
 
