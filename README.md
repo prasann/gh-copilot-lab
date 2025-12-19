@@ -1,13 +1,140 @@
-# 🚀 GitHub Copilot in VS Code
+# 🚀 Advanced GitHub Copilot Collaboration Demo
 
-## 🎯 Agenda Overview
+## Overview
 
-4 core concepts that make GitHub Copilot powerful:
+This repository demonstrates advanced GitHub Copilot customization techniques, showing how to scale from individual developer productivity to sophisticated team workflows.
 
-1. **Prompts** - Explicit instructions for code generation
-2. **Instructions** - Implicit behavioral configuration  
-3. **Chat Modes** - Different interaction patterns
-4. **Collections** - Organized knowledge bases
+## 🎯 What You'll Learn
+
+1. **Instructions** - Implicit, always-active coding standards
+2. **Prompts** - Explicit, on-demand task automation
+3. **Custom Agents** - Role-based specialists with handoffs
+4. **Agent Skills** - Portable workflows with scripts and resources
+
+## 📁 Repository Structure
+
+```
+.github/
+├── instructions/          # Always-active coding standards
+│   ├── typescript-preference.instructions.md
+│   └── json-creation.instructions.md
+├── prompts/              # On-demand task templates
+│   ├── text-to-json.prompt.md
+│   ├── create-component.prompt.md
+│   └── generate-tests.prompt.md
+├── agents/               # Specialized workflow agents
+│   ├── planner.agent.md       # Read-only planning
+│   ├── tasker.agent.md        # Task breakdown
+│   ├── implementer.agent.md   # Full implementation
+│   ├── reviewer.agent.md      # Code review
+│   └── gilfoyle.agent.md      # Sarcastic reviewer
+└── skills/               # Complete workflows
+    └── feature-testing/
+        ├── SKILL.md
+        └── templates/
+
+presentation/
+├── AGENDA.txt            # Sample data for demos
+└── generate_app_prompt.md
+
+DEMO_SCRIPT.md           # Complete demo walkthrough
+QUICK_REFERENCE.md       # Cheat sheet
+NARRATIVE.md             # Full narrative and use cases
+```
+
+## 🚀 Quick Start
+
+### Individual Workflow (Simple)
+
+1. **See Instructions in Action**
+   - Generate any TypeScript code
+   - Notice: Explicit return types, JSDoc with 🦄 comments
+   - Create any JSON object
+   - Notice: Automatic `created_at` timestamps
+
+2. **Try Prompts**
+   - Select text in `presentation/AGENDA.txt`
+   - Run `.github/prompts/text-to-json.prompt.md`
+   - Watch it transform to structured JSON
+
+### Professional Workflow (Advanced)
+
+1. **Planning Phase**
+   ```
+   Switch to: @planner
+   "Plan user authentication for this app"
+   ```
+   - Agent researches codebase (read-only)
+   - Generates comprehensive plan
+   - Click "📋 Create Tasks" button
+
+2. **Task Breakdown Phase**
+   ```
+   (Automatically switched to @tasker)
+   ```
+   - Breaks plan into phased tasks
+   - Creates actionable checklist
+   - Click "🚀 Start Implementation" button
+
+3. **Implementation Phase**
+   ```
+   (Automatically switched to @implementer)
+   ```
+   - Implements tasks incrementally
+   - Follows all instructions automatically
+   - Runs tests
+   - Click "🔍 Review Code" button (optional)
+
+## 💡 Key Concepts
+
+### Instructions vs Prompts vs Agents vs Skills
+
+| Feature | When | Purpose | Example |
+|---------|------|---------|---------|
+| **Instructions** | Always active | Enforce standards | TypeScript rules |
+| **Prompts** | On-demand | Automate tasks | Text to JSON |
+| **Agents** | When selected | Specialized workflows | Planner → Implementer |
+| **Skills** | Auto-detected | Complete capabilities | Testing workflow |
+
+## 🎬 Demo Files
+
+### For Individual Workflow Demo
+- ✅ Instructions demonstrate automatic enforcement
+- ✅ Prompt shows on-demand transformation
+- ✅ Results show consistent standards
+
+### For Professional Workflow Demo
+- ✅ @planner: Research and design (read-only)
+- ✅ @tasker: Break into phases
+- ✅ @implementer: Build with full power
+- ✅ Handoffs create review checkpoints
+
+## 📚 Documentation
+
+- [DEMO_SCRIPT.md](DEMO_SCRIPT.md) - Complete demo walkthrough with timings
+- [QUICK_REFERENCE.md](QUICK_REFERENCE.md) - Quick cheat sheet
+- [NARRATIVE.md](NARRATIVE.md) - Full narrative and use cases
+
+## 🎓 Learning Resources
+
+- [VS Code Copilot Customization](https://code.visualstudio.com/docs/copilot/customization/overview)
+- [Awesome Copilot](https://github.com/github/awesome-copilot)
+- [Agent Skills Standard](https://agentskills.io/)
+
+## 🎯 Success Criteria
+
+After this demo, you should understand:
+- ✅ When to use instructions vs prompts vs agents
+- ✅ How agents create workflow guardrails
+- ✅ How handoffs enable controlled transitions
+- ✅ How to start customizing Copilot for your team
+
+## 🚀 Next Steps
+
+1. **Start Simple**: Add one instruction file for your coding standards
+2. **Add Automation**: Create a prompt for a common task
+3. **Scale Up**: Build an agent for planning or review workflows
+4. **Share**: Commit customizations to your team repo
 
 ---
 
