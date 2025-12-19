@@ -151,7 +151,6 @@ Custom agents can be chained together with handoffs:
 
 - [VS Code Copilot Customization Docs](https://code.visualstudio.com/docs/copilot/customization/overview)
 - [Awesome Copilot Examples](https://github.com/github/awesome-copilot)
-- [Agent Skills Standard](https://agentskills.io/)
 
 ---
 
