@@ -1,161 +1,158 @@
 # 🚀 GitHub Copilot Customization Quick Reference
 
-## 📚 The Four Pillars
+A quick overview of GitHub Copilot's customization features.
 
-### 1️⃣ Instructions (Implicit, Always Active)
+## 📚 Four Key Concepts
+
+### 1️⃣ Instructions
 **Location**: `.github/instructions/*.instructions.md`
 
-**What**: Rules that apply to ALL code generation automatically
+**How it works**: Rules apply automatically to ALL code generation
 
 **Use for**: 
-- Coding standards
-- Best practices
-- Consistent patterns
+- Coding standards (TypeScript types, naming conventions)
+- Best practices that should always apply
+- Consistent patterns across your codebase
 
-**Example**: TypeScript rules, JSON timestamp requirements
+**Example**: Enforce explicit return types, add timestamps to JSON
 
 ---
 
-### 2️⃣ Prompts (Explicit, On-Demand)
+### 2️⃣ Prompts
 **Location**: `.github/prompts/*.prompt.md`
 
-**What**: Reusable templates for specific tasks
+**How it works**: Reusable templates you run manually when needed
 
 **Use for**:
-- Data transformation
-- Component scaffolding  
-- Documentation generation
+- Component scaffolding
+- Test generation
+- Data transformations
+- Repetitive tasks
 
-**Example**: Text to JSON converter
+**Example**: Generate React component with TypeScript
 
 ---
 
-### 3️⃣ Agents (Role-Based Specialists)
+### 3️⃣ Custom Agents
 **Location**: `.github/agents/*.agent.md`
 
-**What**: Specialized assistants with specific tools and capabilities
+**How it works**: Specialized assistants with specific tools and capabilities
 
 **Use for**:
-- Multi-step workflows
-- Phase separation (plan vs implement)
-- Tool restrictions (read-only vs full access)
+- Multi-phase workflows
+- Role separation (planning vs implementing)
+- Controlled access (read-only vs full editing)
+- Team collaboration patterns
 
-**Example**: Planner → Tasker → Implementer
+**Example**: @Planner (read-only) → @Tasker → @Implementer (full access)
 
 ---
 
-### 4️⃣ Agent Skills (Portable Workflows)
+### 4️⃣ Agent Skills
 **Location**: `.github/skills/*/SKILL.md`
 
-**What**: Complete workflows with scripts and resources
+**How it works**: Complete workflows with multiple resources bundled together
 
 **Use for**:
-- Complex multi-tool workflows
-- Cross-platform portability
-- Community sharing
+- Complex workflows needing templates/scripts
+- Portable workflows across projects
+- Sharing capabilities with community
 
-**Example**: Feature testing workflow
-
----
-
-## 🎯 When to Use What
-
-| Need | Solution | File |
-|------|----------|------|
-| TypeScript always has explicit types | Instructions | `.instructions.md` |
-| Convert agenda text to JSON | Prompt | `.prompt.md` |
-| Plan before implementing | Agent | `.agent.md` |
-| Complete testing workflow | Skill | `SKILL.md` |
+**Example**: Complete testing workflow with templates
 
 ---
 
-## 🔄 Professional Workflow Pattern
+## 🎯 Quick Decision Guide
+
+| Need | Solution | When to Use |
+|------|----------|-------------|
+| TypeScript always has explicit types | **Instructions** | Standards that should ALWAYS apply |
+| Generate React component | **Prompt** | Repeatable task you run on-demand |
+| Plan before implementing | **Custom Agent** | Multi-phase workflow with handoffs |
+| Complete testing workflow | **Agent Skill** | Bundle templates + workflows |
+
+---
+
+## 🔄 Agent Workflow Pattern
+
+Custom agents can be chained together with handoffs:
 
 ```
-@planner
-   ↓ (Read-only research)
-   ↓ Handoff: "Create Tasks"
-   
-@tasker
-   ↓ (Break into phases)
-   ↓ Handoff: "Start Implementation"
-   
-@implementer
-   ↓ (Full editing power)
-   ↓ Handoff: "Review Code"
-   
-@reviewer (optional)
-   ↓ (Quality check)
+@Planner (read-only)
+    ↓ Research & Plan
+    ↓ [📋 Create Tasks]
+    
+@Tasker
+    ↓ Break into Phases
+    ↓ [🚀 Start Implementation]
+    
+@Implementer (full access)
+    ↓ Build Feature
+    ↓ [🔍 Review Code]
+    
+@Reviewer (optional)
+    ↓ Quality Check
 ```
 
----
-
-## 💡 Demo Flow
-
-### Individual Workflow (10 min)
-1. Show code generation with automatic standards
-2. Reveal instructions files
-3. Demo prompt for text-to-JSON
-4. Explain Instructions vs Prompts
-
-### Professional Workflow (15 min)
-1. @planner - Research and design
-2. @tasker - Break into tasks
-3. @implementer - Build the feature
-4. Show handoffs between agents
+**Key benefit**: Each agent has appropriate access level - Planner can't accidentally edit code!
 
 ---
 
-## 🎤 Key Talking Points
+## 📁 What's in This Repo
 
-> "Instructions are your silent partner - always enforcing standards"
+### Instructions (`.github/instructions/`)
+- `typescript-preference.instructions.md` - TypeScript standards + 🦄 comments
+- `json-creation.instructions.md` - Auto-add timestamps to JSON
 
-> "Prompts are your team's runbook - use when needed"
+### Prompts (`.github/prompts/`)
+- `create-component.prompt.md` - Generate React components
+- `generate-tests.prompt.md` - Generate test suites
+- `text-to-json.prompt.md` - Convert text to JSON
 
-> "Agents are specialists - each with the right tools"
+### Agents (`.github/agents/`)
+- `planner.agent.md` - Read-only planning (no file edits)
+- `tasker.agent.md` - Task breakdown
+- `implementer.agent.md` - Full implementation access
+- `reviewer.agent.md` - Code review
+- `gilfoyle.agent.md` - Sarcastic reviewer (bonus!)
 
-> "Handoffs create checkpoints - you stay in control"
-
----
-
-## 📁 Files in This Demo
-
-### Instructions
-- ✅ `typescript-preference.instructions.md` - TS standards + 🦄 comments
-- ✅ `json-creation.instructions.md` - Automatic timestamps
-
-### Prompts
-- ✅ `text-to-json.prompt.md` - Convert text to structured JSON
-
-### Agents
-- ✅ `planner.agent.md` - Read-only research & planning
-- ✅ `tasker.agent.md` - Break plans into tasks
-- ✅ `implementer.agent.md` - Full implementation power
-- ✅ `reviewer.agent.md` - Code review specialist
-- ✅ `gilfoyle.agent.md` - Sarcastic reviewer (for fun!)
-
-### Skills
-- ✅ `feature-testing/SKILL.md` - Complete testing workflow
+### Skills (`.github/skills/`)
+- `feature-testing/SKILL.md` - Complete testing workflow with templates
 
 ---
 
-## 🚀 Getting Started Guide
+## 🆚 Key Differences
 
-### For Individuals
-1. Create `.github/instructions/` folder
-2. Add your coding standards
-3. Watch them apply automatically
+| Feature | Instructions | Prompts | Agents | Skills |
+|---------|-------------|---------|--------|--------|
+| **Trigger** | Automatic | Manual | Selected | Auto-detected |
+| **Scope** | All code | Specific task | Workflow phase | Complete workflow |
+| **Control** | Implicit | Explicit | Controlled | Bundled |
+| **Best for** | Standards | Scaffolding | Multi-phase work | Complex workflows |
 
-### For Teams
-1. Start with instructions
-2. Add prompts for common tasks
-3. Create agents for workflows
-4. Use handoffs to connect agents
+---
+
+## 🚀 Getting Started
+
+**Start Simple:**
+1. Add one `.instructions.md` file for your coding standards
+2. Create a `.prompt.md` for a common task
+3. Try the agent workflow for planning
+
+**Scale Up:**
+1. Add more instructions as needed
+2. Build prompt library for your team
+3. Create custom agents for your workflow
+4. Package complex workflows as skills
 
 ---
 
 ## 📖 Learn More
 
-- [VS Code Copilot Docs](https://code.visualstudio.com/docs/copilot/customization/overview)
-- [Awesome Copilot](https://github.com/github/awesome-copilot)
+- [VS Code Copilot Customization Docs](https://code.visualstudio.com/docs/copilot/customization/overview)
+- [Awesome Copilot Examples](https://github.com/github/awesome-copilot)
 - [Agent Skills Standard](https://agentskills.io/)
+
+---
+
+**Complete the exercises:** Start with [Exercise 1: Instructions](exercises/01-instructions.md)
