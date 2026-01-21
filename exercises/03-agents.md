@@ -62,7 +62,65 @@ Click the **"🚀 Start Implementation"** handoff button.
 
 ---
 
-## Step 4: Explore Agent Configuration
+## Step 4: Use a Skill for Security Audit
+
+The feature works, but is it safe? This workspace includes a **"security-audit" Skill** that functions as a security gatekeeper.
+
+**The Power of Skills:**
+Skills aren't just instructions—they can bundle **scripts, rules, and checklists**. This allows Copilot to run actual tools or follow strict compliance docs.
+
+### 1. Create a Vulnerable File
+Create a new file `src/user-service.ts` with this insecure code:
+```typescript
+/**
+ * User data retrieval service
+ */
+// @ts-ignore
+const db = require('./db');
+
+export function getUser(id: any) {
+    // ⚠️ Vulnerability: Direct string interpolation in SQL
+    const query = `SELECT * FROM users WHERE id = '${id}'`;
+    console.log("Executing:", query);
+    return db.execute(query);
+}
+```
+
+### 2. Trigger the Audit w/ Script
+Ask Copilot in the Chat view:
+```
+Audit src/user-service.ts using the security skill
+```
+
+**Notice:**
+- Copilot detects the `security-audit` skill.
+- It accesses the resources in `.github/skills/security-audit/`.
+- It may **run the included script** (`scripts/scan.js`) to detect the SQL injection pattern.
+- It validates against the [Security Checklist](../.github/skills/security-audit/rules/checklist.md).
+- The response prioritizes fixing the **Critical** vulnerability (SQL Injection) over everything else.
+
+### 3. Apply the Fix
+Copilot will suggest a parameterized query fix (e.g., using `?` or separate params). Apply it to secure the code.
+
+---
+
+## 🤔 Instructions vs. Skills
+
+It's common to confuse **Instructions** (Exercise 1) with **Skills** (Exercise 3). Here is the difference:
+
+| Feature | Custom Instructions | Agent Skills |
+| :--- | :--- | :--- |
+| **Trigger** | Always active (passive) | Auto-detected by prompt (active) |
+| **Content** | Text rules only | Text, Scripts, Templates, Files |
+| **Complexity** | Simple style guides | Complex multi-step workflows |
+| **Cost** | Consumes context on every request | Zero context cost until activated |
+| **Use Case** | "Format code like this..." | "Perform this specific task..." |
+
+**Key Takeaway:** Use Instructions for *rules* ("Always use TypeScript"). Use Skills for *jobs* ("Audit for security").
+
+---
+
+## Step 5: Explore Agent Configuration
 
 Open these files to see how agents are configured:
 - [`.github/agents/planner.agent.md`](../.github/agents/planner.agent.md)
@@ -83,6 +141,7 @@ You understand:
 - ✅ Handoffs create controlled phase transitions
 - ✅ Read-only vs full-access creates guardrails
 - ✅ You review/approve at each checkpoint
+- ✅ Skills augment Agents with portable, reusable workflows
 
 ## 💡 When to Use
 
@@ -92,38 +151,10 @@ Use Custom Agents for:
 - Team collaboration patterns
 - Complex feature development
 
----
-
-## � Bonus: Agent Skills
-
-Agents can also use **Agent Skills** - complete workflows bundled with resources.
-
-### What Are Skills?
-
-Skills are folders containing:
-- `SKILL.md` file with instructions
-- Scripts, templates, or other resources
-- Located in `.github/skills/`
-
-### Key Difference
-
-**Skills are auto-detected** - Copilot decides when to use them based on your prompt (you don't manually select them).
-
-### Try It
-
-Open [`.github/skills/feature-testing/SKILL.md`](../.github/skills/feature-testing/SKILL.md)
-
-Notice:
-- It includes instructions for testing workflows
-- The `templates/` folder has reusable test templates
-- Copilot will use this automatically when you ask about testing
-
-### When to Create Skills
-
-Create skills for:
-- Complex workflows needing multiple resources
-- Workflows you want portable across projects
-- Specialized tasks that need context (scripts, examples, templates)
+Use Skills for:
+- Reusable workflows (like testing, debugging)
+- Capabilities that need templates or scripts
+- Sharing logic between Agents and Chat
 
 ---
 
@@ -134,7 +165,7 @@ You've learned GitHub Copilot customization:
 1. **Instructions** → Automatic standards
 2. **Prompts** → On-demand tasks
 3. **Agents** → Workflow orchestration
-4. **Skills** → Auto-detected workflows (bonus!)
+4. **Skills** → Auto-detected workflows
 
 **Reference:** See [QUICK_REFERENCE.md](../QUICK_REFERENCE.md) for a complete comparison.
 
