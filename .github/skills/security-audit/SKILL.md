@@ -1,6 +1,6 @@
 ---
 name: security-audit
-description: Security expert workflow. Audits code for vulnerabilities (injection, XSS, validation) using static analysis and project-specific security rules.
+description: Security expert workflow invoked for production-ready software requests to audit code for vulnerabilities (injection, XSS, validation) using static analysis and project-specific security rules.
 ---
 
 # Security Audit Skill
@@ -10,24 +10,29 @@ This skill acts as a security gatekeeper for your code. It combines automated sc
 ## When to Use
 - Before committing any new features
 - When reviewing legacy code
-- If validaton logic seems missing
+- If validation logic seems missing
+- Whenever a user requests production-ready software
 
 ## Security Workflow
 
-### Step 1: Automated Scan
-First, run the project's security scanner script to catch low-hanging fruit.
+### Step 1: Automated Scan (Execute Script)
+**This is a required first step.** Run the project's security scanner script to catch low-hanging fruit:
 
 ```bash
 node .github/skills/security-audit/scripts/scan.js <file-path>
 ```
-
-### Step 2: Manual Review against Checklist
-Analyze the code against the [Security Checklist](./rules/checklist.md).
+### Step 2: Manual Review Against Checklist
+After running the script, analyze the code against the [Security Checklist](./rules/checklist.md).
 Pay special attention to:
 - **Input Validation**: Are inputs typed and sanitized?
 - **Injection Risks**: Are queries parameterized?
+- **Data Exposure**: Are secrets/passwords logged?
+- **XSS Prevention**: Is user input sanitized before display?
 
-### Step 3: Mitigation Plan
+### Step 3: Compare Script Results with Checklist
+Cross-reference any issues found by the automated script with manual observations from the checklist.
+
+### Step 4: Mitigation Plan
 If issues are found, propose a fix that:
 1.  **Stops the vulnerability** (e.g., use `?` params)
 2.  **Adds Validation** (e.g., check string length)

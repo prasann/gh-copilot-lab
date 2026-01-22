@@ -14,7 +14,7 @@ In VS Code chat, switch to **@Planner** (use the agent dropdown).
 
 Request a plan:
 ```
-Plan adding a contact form feature with validation
+Plan adding a contact form feature with validation. Use HTML, JS and CSS only. Create it in `src` folder. Super simple app, but it should be production ready.
 ```
 
 **Notice:**
