@@ -1,19 +1,29 @@
 # GitHub Copilot Lab
 
-Learn how to customize GitHub Copilot with Instructions, Prompts, and Custom Agents.
+Learn how to customize and get the most out of GitHub Copilot in VS Code.
 
 ## 🎯 What's Inside
 
-Three exercises that teach you:
+Seven exercises that teach you:
+
+**Customization (Exercises 1-3)**
 1. **Instructions** - Automatic code standards
 2. **Prompts** - On-demand task templates
-3. **Agents** - Workflow orchestration
+3. **Agents & Skills** - Workflow orchestration
 
-**Time:** 30-40 minutes total
+**Extensibility & Productivity (Exercises 4-7)**
+4. **MCP Servers** - Connect Copilot to external tools
+5. **Chat Modes** - Custom Copilot behaviors
+6. **Everyday Copilot** - Inline completions, NES, context, vision
+7. **Tips & Tricks** - Code review, models, terminal, and more
+
+**Time:** 60-90 minutes total (or pick individual exercises)
 
 ## 🚀 Get Started
 
 👉 **[Start with Exercise 1: Instructions](exercises/01-instructions.md)**
+
+Or jump to any exercise — Exercises 1-3 build on each other, 4-7 are standalone.
 
 ### Prerequisites
 - VS Code with GitHub Copilot installed
@@ -30,7 +40,13 @@ Three exercises that teach you:
 ├── agents/          # Custom workflow agents
 └── skills/          # Portable workflows
 
-exercises/           # Step-by-step exercises
+.vscode/
+└── mcp.json         # MCP server configuration
+
+.chat/
+└── modes/           # Custom chat modes
+
+exercises/           # Step-by-step exercises (1-7)
 ```
 
 ## 📚 Additional Resources
@@ -38,11 +54,13 @@ exercises/           # Step-by-step exercises
 - **[Quick Reference](QUICK_REFERENCE.md)** - Comparison guide for all features
 - **[VS Code Copilot Docs](https://code.visualstudio.com/docs/copilot/customization/overview)** - Official documentation
 
-## � After Completing Exercises
+## 🎓 After Completing Exercises
 
 You'll understand:
-- ✅ When to use instructions vs prompts vs agents
+- ✅ When to use instructions vs prompts vs agents vs chat modes
 - ✅ How to enforce standards automatically
+- ✅ How to connect Copilot to external tools with MCP
 - ✅ How to build controlled workflows
+- ✅ The daily productivity features (inline, NES, vision, context)
 
 Happy learning! 🚀

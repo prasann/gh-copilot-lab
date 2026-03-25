@@ -158,17 +158,19 @@ Use Skills for:
 
 ---
 
-## 🎓 Complete!
+## 🎓 Checkpoint!
 
-You've learned GitHub Copilot customization:
+You've learned GitHub Copilot **customization**:
 
 1. **Instructions** → Automatic standards
 2. **Prompts** → On-demand tasks
 3. **Agents** → Workflow orchestration
 4. **Skills** → Auto-detected workflows
 
+**Up next:** Exercises 4-7 cover **extensibility and productivity** — MCP servers, chat modes, inline completions, and more.
+
 **Reference:** See [QUICK_REFERENCE.md](../QUICK_REFERENCE.md) for a complete comparison.
 
 ---
 
-**Previous:** [← Exercise 2: Prompts](02-prompts.md)
+**Previous:** [← Exercise 2: Prompts](02-prompts.md) | **Next:** [Exercise 4: MCP Servers →](04-mcp-servers.md)
