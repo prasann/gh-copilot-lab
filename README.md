@@ -52,7 +52,6 @@ exercises/           # Step-by-step exercises (1-7)
 ## 📚 Additional Resources
 
 - **[Quick Reference](QUICK_REFERENCE.md)** - Comparison guide for all features
-- **[VS Code Copilot Docs](https://code.visualstudio.com/docs/copilot/customization/overview)** - Official documentation
 
 ## 🎓 After Completing Exercises
 
